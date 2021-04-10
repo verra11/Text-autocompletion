@@ -7,3 +7,21 @@
    predictions
 6. use edit distance for unigram corrections
 7. convert into api and add frontend
+
+
+
+fixes
+
+1. add own vocabulary to handle unk in training data:
+	vocab=Vocabulary(unk_cutoff=2)
+	mle(n,vocabulary=vocab)
+
+2. iterate through each word in vocabulary (max 1e5) and get score of model and find highest
+
+3. smoothing-laplace smoothing
+	
+	score=model.score(word,context)
+	cnt1=model.counts(context word)
+	cnt2=model.counts(context)
+	score=cnt1/cnt2
+	new_score=(cnt1+1)/(cnt2+vocabsize)
