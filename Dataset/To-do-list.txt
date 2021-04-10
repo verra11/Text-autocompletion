@@ -1,9 +1,0 @@
-
-1. find dataset
-2. convert into sentences and also tokens
-3. use the sentences and tokens for padded_everygrams along with brown corpus
-4. use the data obtained in step 3 to train a mle of 4 grams
-5. based on number of words get the top 5 most probable next words which are our final 
-   predictions
-6. use edit distance for unigram corrections
-7. convert into api and add frontend
