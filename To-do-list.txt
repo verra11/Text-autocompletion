@@ -10,13 +10,20 @@
 
 
 
+
+
 fixes
+
+4. remove punctuation marks
+
+5. converts all words to lowercase
 
 1. add own vocabulary to handle unk in training data:
 	vocab=Vocabulary(unk_cutoff=2)
 	mle(n,vocabulary=vocab)
 
 2. iterate through each word in vocabulary (max 1e5) and get score of model and find highest
+		list(trigram.counts[1])
 
 3. smoothing-laplace smoothing
 	
