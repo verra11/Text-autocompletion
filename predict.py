@@ -12,7 +12,7 @@ print(len(model.vocab))
 def predict(model,context,smoothing=0):
     words_pred=[]
     for word in list(model.counts[1]):
-        tem=(word,model.score(word,context.split()))
+        tem=(model.score(word,context.split()), word)
         words_pred.append(tem)
     words_pred.sort(key = lambda x:x[0],reverse=True)
     return words_pred[:6]
