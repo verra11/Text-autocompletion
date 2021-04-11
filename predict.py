@@ -71,8 +71,7 @@ def predict_now(context,current_word):
         
     words_pred_bi.sort(key = lambda x:x[0],reverse=True)
     words_pred_edi.sort(key = lambda x:x[0])    
-    words_pred=words_pred_bi[:3]
-    words_pred.append(words_pred_edi[:2])
+    words_pred=words_pred_bi[:3]+words_pred_edi[:2]
     return words_pred
 
 #corrects the current word

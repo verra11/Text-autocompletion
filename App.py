@@ -12,11 +12,11 @@ app = Flask(__name__)
 
 @app.route('/output',methods=['POST', 'GET'])
 def pred():
-    text=str(request.args.get('text'))
-    action=str(request.args.get('type'))
+    req_data=request.get_json()
+    text=str(req_data['text'])
+    action=str(req_data['type'])
     context=' '.join(text.split()[-3:])
     current_word=context.split()[-1]
-
     if action == 'correct':
         return json.dumps(predict.crct_word(current_word))
     elif action == 'complete':
