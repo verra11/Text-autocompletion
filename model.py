@@ -25,8 +25,8 @@ print('#######################################')
 print('done training', time.time()-pre_tim)
 
 
-# filename = 'ngram_model.pkl' 
-# with open(filename, 'wb') as out:
-# 	dill.dump(model, out)
+filename = 'ngram_model.pkl' 
+with open(filename, 'wb') as out:
+	dill.dump(model, out)
 
 print(model.vocab)
