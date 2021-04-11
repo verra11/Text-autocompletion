@@ -7,7 +7,7 @@ pre=time.time()
 
 print('starting')
 
-filename = 'ngram_model_final.pkl'
+filename = 'ngram_model.pkl'
 
 with open(filename, 'rb') as fin:
 	model = dill.load(fin)
