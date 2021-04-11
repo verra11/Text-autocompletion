@@ -1,5 +1,6 @@
 
 import dill
+import nltk
 
 filename = 'ngram_model_final.pkl'
 
