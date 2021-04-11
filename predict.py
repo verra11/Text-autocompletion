@@ -93,3 +93,4 @@ def crct_word(current_word):
 # print(crct_word('hllo'))
 
 print('ended',time.time()-pre)
+
