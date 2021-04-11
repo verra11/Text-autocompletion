@@ -1,11 +1,14 @@
 from flask import Flask, render_template, jsonify,request
 
 import time
+pre=time.time()
 print('Loading data')
 import predict
+print('completed loading\n Firing server ....!!',time.time()-pre)
 import simplejson as json
 
 app = Flask(__name__)
+
 
 @app.route('/output',methods=['POST', 'GET'])
 def pred():

@@ -1,13 +1,16 @@
 
 import dill
 import nltk
+import time
 
-filename = 'ngram_model_final.pkl'
+pre=time.time()
+
+print('starting')
+
+filename = 'ngram_model.pkl'
 
 with open(filename, 'rb') as fin:
 	model = dill.load(fin)
-
-print(len(model.vocab))
 
 #predicts next word
 def predict(context,smoothing=0):
@@ -20,6 +23,8 @@ def predict(context,smoothing=0):
     
 #     print(tgram,'\n',bgram,'\n',ugram)
     for word in list(model.counts[1]):
+        if(word=='<s>' or word=='</s>' or word=='<UNK>'):
+            continue
         tem=(model.score(word,tgram.split()), word)
         words_pred_tri.append(tem)
         tem=(model.score(word,bgram.split()), word)
@@ -32,8 +37,7 @@ def predict(context,smoothing=0):
     words_pred_uni.sort(key = lambda x:x[0],reverse=True)
     words_pred=[]
     for i in range(9):
-        if(words_pred_tri[i][1]!='<s>' and words_pred_tri[i][1]!='</s>' and words_pred_tri[i][1]!='<UNK>'):
-            words_pred.append(words_pred_tri[i])
+        words_pred.append(words_pred_tri[i])
     
     if(smoothing==0):
         return words_pred
@@ -44,8 +48,7 @@ def predict(context,smoothing=0):
     
     words_pred=[]
     for i in range(9):
-        if(words_pred_bi[i][1]!='<s>' and words_pred_bi[i][1]!='</s>' and words_pred_bi[i][1]!='<UNK>'):
-            words_pred.append(words_pred_bi[i])
+        words_pred.append(words_pred_bi[i])
     if(words_pred[-1][0]!=0.0):
         print('from bigrams')
         return words_pred
@@ -88,3 +91,6 @@ def crct_word(current_word):
 # print(predict('the adventures of'))
 # print(predict_now('what are','cont'))
 # print(crct_word('hllo'))
+
+print('ended',time.time()-pre)
+
