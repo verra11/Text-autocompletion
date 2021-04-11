@@ -10,7 +10,7 @@ with open(filename, 'rb') as fin:
 print(len(model.vocab))
 
 #predicts next word
-def predict(model,context,smoothing=0):
+def predict(context,smoothing=0):
     words_pred_uni=[]
     words_pred_bi=[]
     words_pred_tri=[]
@@ -54,7 +54,7 @@ def predict(model,context,smoothing=0):
     return words_pred_uni[:9]
 
 #auto completess the current word
-def predict_now(model,context,current_word):
+def predict_now(context,current_word):
     bgram=context.split()[-2:][0]
     words_pred_bi=[]
     words_pred_edi=[]
@@ -73,7 +73,7 @@ def predict_now(model,context,current_word):
     return words_pred
 
 #corrects the current word
-def crct_word(model,current_word):
+def crct_word(current_word):
     words_pred=[]
     for word in list(model.counts[1]):
         if(word=='<UNK' or word=='<s>' or word=='</s>' ):
@@ -85,6 +85,6 @@ def crct_word(model,current_word):
 
 # print(list(brown.words())[:20])
 # print(model.counts[['an','investigation','of']]['atlanta\'s'])
-print(predict(model,'the adventures of'))
-print(predict_now(model,'what are','cont'))
-print(crct_word(model,'hllo'))
+print(predict('the adventures of'))
+print(predict_now('what are','cont'))
+print(crct_word('hllo'))
