@@ -85,6 +85,6 @@ def crct_word(current_word):
 
 # print(list(brown.words())[:20])
 # print(model.counts[['an','investigation','of']]['atlanta\'s'])
-print(predict('the adventures of'))
-print(predict_now('what are','cont'))
-print(crct_word('hllo'))
+# print(predict('the adventures of'))
+# print(predict_now('what are','cont'))
+# print(crct_word('hllo'))
