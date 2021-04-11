@@ -1,12 +1,12 @@
+
 import dill
 
-filename = 'ngram_model.pkl'
+filename = 'ngram_model_final.pkl'
 
 with open(filename, 'rb') as fin:
 	model = dill.load(fin)
 
 print(len(model.vocab))
-
 
 
 def predict(model,context,smoothing=0):
@@ -18,4 +18,4 @@ def predict(model,context,smoothing=0):
     return words_pred[:6]
 
 
-print(predict(model,'what is your'))
+# print(predict(model,'what is your'))
