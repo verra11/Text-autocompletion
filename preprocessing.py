@@ -2,7 +2,7 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import brown
 import string
 
-file = open(r'corpus.txt', 'r')
+file = open(r'corpus.txt', 'r',encoding="utf-8")
 text = file.read()
 file.close()
 
