@@ -14,6 +14,7 @@ app = Flask(__name__)
 def pred():
     req_data=request.get_json()
     text=str(req_data['text'])
+    text = text.lower()
     action=str(req_data['type'])
     context=' '.join(text.split()[-3:])
     current_word=context.split()[-1]
